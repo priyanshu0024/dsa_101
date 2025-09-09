@@ -10,4 +10,4 @@
                 print(nums[i:j])
                 c+=1
         return c
-        ```
+    ```
