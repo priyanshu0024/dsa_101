@@ -66,3 +66,61 @@
     l = [0,0,1,1,1,2,2,3,3,4]
     remove_repeted_element(l)   # [0, 1, 2, 3, 4, 2, 2, 3, 3, 4]
     ```
+
+
+
+* Move Zeros.
+
+    ```python
+    class Solution:
+        def moveZeroes(self, nums) -> None:
+            """
+            Do not return anything, modify nums in-place instead.
+            """
+
+            k = 0 
+            for i in range(len(nums)):
+                if nums[i] != 0:
+                    nums[k] = nums[i]
+                    k+=1
+
+            for i in range(k, len(nums)):
+                nums[i] = 0
+            return nums
+        
+    print(Solution().moveZeroes(nums = [0,1,0,3,12]))
+    ```
+
+
+
+
+* Happy Number
+
+    ```python
+    Input: n = 19
+    Output: true
+    Explanation:
+    12 + 92 = 82
+    82 + 22 = 68
+    62 + 82 = 100
+    12 + 02 + 02 = 1
+    ```
+
+
+    ```python
+    def get_next_value(n):
+        return sum(int(i) **2 for i in str(n))
+
+    def is_happyNumber(n):
+        seen = set()
+        while n != 1 and n not in seen:
+            seen.add(n)
+            n = get_next_value(n)
+        print(seen)
+        return n==1
+
+
+    print(is_happyNumber(647))
+    ```
+
+
